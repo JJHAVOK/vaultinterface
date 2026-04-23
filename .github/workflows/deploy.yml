@@ -1,0 +1,39 @@
+name: Deploy Vault FinTech UI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd ~/htdocs/vault.jaimecj.com
+
+            # Pull the latest code
+            git pull origin main
+
+            # Install dependencies and build
+            npm ci
+            npm run build
+
+            # Restart PM2 process
+            npx pm2 delete vault-jaimecj || true
+            PORT=3010 npx pm2 start npm --name "vault-jaimecj" -- run start
+
+            # Save process list for VPS reboots
+            npx pm2 save
+
+            echo "✅ Vault FinTech UI deployed successfully on port 3010!"
