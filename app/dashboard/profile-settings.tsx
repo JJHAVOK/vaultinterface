@@ -236,9 +236,9 @@ export function ProfilePage() {
   };
 
   const SESSIONS = [
-    { device: 'Chrome on Windows', location: 'Atlanta, GA', time: 'Now', current: true },
-    { device: 'Safari on iPhone', location: 'Atlanta, GA', time: '2 hours ago', current: false },
-    { device: 'Firefox on MacOS', location: 'New York, NY', time: '3 days ago', current: false },
+    { device: 'Chrome on Windows', location: 'United States', time: 'Now', current: true },
+    { device: 'Safari on iPhone', location: 'United States', time: '2 hours ago', current: false },
+    { device: 'Firefox on MacOS', location: 'United States', time: '3 days ago', current: false },
   ];
 
   return (
