@@ -1,4 +1,4 @@
-name: Deploy Vault FinTech UI
+name: Deploy Vault
 
 on:
   push:
@@ -22,18 +22,20 @@ jobs:
           script: |
             cd ~/htdocs/vault.jaimecj.com
 
-            # Pull the latest code
+            # Pull latest code
             git pull origin main
 
             # Install dependencies and build
             npm ci
             npm run build
 
-            # Restart PM2 process
-            npx pm2 delete vault-jaimecj || true
-            PORT=3010 npx pm2 start npm --name "vault-jaimecj" -- run start
+            # Delete old process if exists
+            npx pm2 delete vault || true
 
-            # Save process list for VPS reboots
+            # Start Next.js on port 3010
+            PORT=3010 npx pm2 start npm --name "vault" -- run start
+
+            # Save process list for auto-boot on VPS restart
             npx pm2 save
 
-            echo "✅ Vault FinTech UI deployed successfully on port 3010!"
+            echo "✅ Vault deployed successfully!"

@@ -86,7 +86,7 @@ function CompareModal({ stocks, onClose }: { stocks: ScreenerStock[]; onClose: (
                       const isBest = v === best;
                       return (
                         <td key={s.ticker} style={{ textAlign: 'center', fontFamily: 'var(--font-mono)', color: isBest ? 'var(--positive)' : 'var(--text-primary)', fontWeight: isBest ? 700 : 400 }}>
-                          {metric === 'price' ? formatCurrency(v) : ''}`}
+                          {metric === 'price' ? formatCurrency(v) : `${v.toFixed(2)}`}
                           {isBest && <span style={{ fontSize: 9, marginLeft: 4 }}>★</span>}
                         </td>
                       );
