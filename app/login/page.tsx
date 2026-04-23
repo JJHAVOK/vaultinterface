@@ -8,7 +8,7 @@ export default function LoginPage() {
   const router = useRouter();
   const { login } = useAuthStore();
   const [step, setStep] = useState<'login' | '2fa'>('login');
-  const [email, setEmail] = useState('jaime@pixelforgedeveloper.com');
+  const [email, setEmail] = useState('demo@demo.com');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
