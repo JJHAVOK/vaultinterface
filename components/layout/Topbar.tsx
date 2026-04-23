@@ -1,13 +1,13 @@
 'use client';
 import { useState } from 'react';
 import { Search, Bell, Sun, Moon, Command, X } from 'lucide-react';
-import { useUIStore, useNotificationStore } from '@/lib/store';
+import { useUIStore, useNotifStore } from '@/lib/store';
 import { formatDate } from '@/lib/utils';
 import { MARKET_INDICES } from '@/lib/mock-data';
 
 export default function Topbar() {
   const { theme, setTheme, openCommandPalette } = useUIStore();
-  const { notifications, unreadCount, markAllRead, markRead } = useNotificationStore();
+  const { notifications, unreadCount, markAllRead, markRead } = useNotifStore();
   const [notifOpen, setNotifOpen] = useState(false);
 
   const indices = MARKET_INDICES.slice(0, 4);
