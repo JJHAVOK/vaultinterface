@@ -284,9 +284,10 @@ export function ProfilePage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {[
+            // Find this:
             { label: 'Full Name', key: 'name', value: formName, setter: setFormName },
             { label: 'Email', key: 'email', value: formEmail, setter: setFormEmail },
-            { label: 'Phone', key: 'phone', value: '+1 (404) 555-0192', setter: () => {} },
+            { label: 'Phone', key: 'phone', value: '+1 (555) 000-0000', setter: () => {} },
             { label: 'Timezone', key: 'tz', value: 'America/New_York (EST)', setter: () => {} },
           ].map(f => (
             <div key={f.key}>
@@ -312,7 +313,7 @@ export function ProfilePage() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 16px', background: 'var(--bg-tertiary)', borderRadius: 10 }}>
           <div style={{ fontSize: 13, display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 32, height: 20, background: '#1a1f71', borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 9, color: '#fff', fontWeight: 700 }}>VISA</div>
-            •••• •••• •••• 4242
+            - ••• •••• •••• 0000
           </div>
           <button onClick={() => toast.info('Payment method', 'Redirecting to billing portal...')} className="btn btn-ghost" style={{ fontSize: 11 }}>Update</button>
         </div>
