@@ -57,8 +57,8 @@ export const useAuthStore = create<AuthState>()(
       isAuthenticated: false,
       isFirstLogin: true,
       user: {
-        name: 'Jaime Jennings',
-        email: 'jaime@pixelforgedeveloper.com',
+        name: 'Demo Account',
+        email: 'demo@demo.com',
         plan: 'institutional',
       },
       login: (_email: string, _password: string) => {
